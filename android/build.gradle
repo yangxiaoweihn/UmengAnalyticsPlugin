@@ -1,4 +1,4 @@
-group 'com.example.pluginumenganalytics'
+group 'ws.dyt.plugin.umeng'
 version '1.0-SNAPSHOT'
 
 buildscript {

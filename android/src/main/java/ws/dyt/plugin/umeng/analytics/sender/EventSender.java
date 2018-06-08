@@ -1,4 +1,4 @@
-package ws.dyt.plugin.analytic.umeng.sender;
+package ws.dyt.plugin.umeng.analytics.sender;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -7,7 +7,7 @@ import com.umeng.analytics.MobclickAgent;
 
 import java.util.Map;
 
-import ws.dyt.plugin.analytic.umeng.log.LLog;
+import ws.dyt.plugin.umeng.analytics.log.LLog;
 
 /**
  * Created by yangxiaowei at 2018/06/07

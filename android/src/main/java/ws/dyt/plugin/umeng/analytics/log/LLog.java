@@ -1,4 +1,4 @@
-package ws.dyt.plugin.analytic.umeng.log;
+package ws.dyt.plugin.umeng.analytics.log;
 
 import android.util.Log;
 
