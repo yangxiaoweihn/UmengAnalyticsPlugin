@@ -34,4 +34,20 @@ public class EventSender {
             MobclickAgent.onEventValue(context, eventId, param, Integer.valueOf(extra));
         }
     }
+
+    /**
+     * 页面记录
+     * @param pageId
+     * @param visible
+     */
+    public static void handlePage(String pageId, boolean visible) {
+        LLog.d(TAG, "pageId: "+pageId+" , visible: "+visible);
+        if (visible) {
+
+            MobclickAgent.onPageStart(pageId);
+        }else {
+
+            MobclickAgent.onPageEnd(pageId);
+        }
+    }
 }

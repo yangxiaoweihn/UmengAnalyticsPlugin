@@ -1,7 +1,5 @@
 package ws.dyt.plugin.umeng.analytics;
 
-import com.umeng.analytics.MobclickAgent;
-
 import java.util.Map;
 
 import io.flutter.plugin.common.MethodCall;
@@ -77,9 +75,9 @@ public class UmengAnalyticsPlugin implements MethodCallHandler {
 
         final String eventId = call.hasArgument("event") ? (String) call.argument("event") : null;
         final Map<String, String> param = call.hasArgument("param") ? (Map<String, String>) call.argument("param") : null;
-        final String extra = call.hasArgument("extra") ? (String) call.argument("extra") : null;
+        final Integer extra = call.hasArgument("extra") ? (Integer) call.argument("extra") : null;
 
-        EventSender.handleEvent(registrar.context(), eventId, param, extra);
+        EventSender.handleEvent(registrar.context(), eventId, param, extra == null ? null : extra.toString());
     }
 
     /**
@@ -89,14 +87,9 @@ public class UmengAnalyticsPlugin implements MethodCallHandler {
      */
     private void handleAnalyticsPage(MethodCall call, Result result) {
 
-        final boolean visible = call.hasArgument("visible") && (boolean) call.argument("visible");
         final String pageId = call.hasArgument("page") ? (String) call.argument("page") : null;
-        if (visible) {
+        final boolean visible = call.hasArgument("visible") && (boolean) call.argument("visible");
 
-            MobclickAgent.onPageStart(pageId);
-        }else {
-
-            MobclickAgent.onPageEnd(pageId);
-        }
+        EventSender.handlePage(pageId, visible);
     }
 }
